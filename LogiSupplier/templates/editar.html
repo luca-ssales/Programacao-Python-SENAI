@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Fornecedor - LogiSupplier</title>
+    <!-- Carrega o mesmo CSS para manter o design -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Editar Fornecedor: {{ fornecedor[1] }}</h2>
+        
+        <!-- O formulário envia os dados de volta para a rota de edição daquele ID -->
+        <form action="/editar/{{ fornecedor[0] }}" method="POST">
+            
+            <label for="empresa">Nome da Empresa:</label>
+            <input type="text" name="empresa" value="{{ fornecedor[1] }}" required>
+
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" name="cnpj" value="{{ fornecedor[2] }}" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="text" name="telefone" value="{{ fornecedor[3] }}">
+
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" value="{{ fornecedor[4] }}">
+
+            <label for="cidade">Cidade:</label>
+            <input type="text" name="cidade" value="{{ fornecedor[5] }}">
+
+            <div class="botoes">
+                <button type="submit" class="btn-salvar">Salvar Alterações</button>
+                <a href="/" class="btn-cancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

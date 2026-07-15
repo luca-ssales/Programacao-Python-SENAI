@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LogiSupplier</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>📦 LogiSupplier</h1>
+
+        <form action="/cadastrar" method="POST">
+
+            <input type="text" name="empresa" placeholder="Nome da Empresa" required>
+
+            <input type="text" name="cnpj" placeholder="CNPJ" required>
+
+            <input type="text" name="telefone" placeholder="Telefone">
+
+            <input type="email" name="email" placeholder="E-mail">
+
+            <input type="text" name="cidade" placeholder="Cidade">
+
+            <button type="submit">
+                Cadastrar
+            </button>
+
+        </form>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Empresa</th>
+                <th>CNPJ</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Cidade</th>
+                <th>Ações</th>
+            </tr>
+
+            {% for fornecedor in fornecedores %}
+
+            <tr>
+                <td>{{ fornecedor[0] }}</td>
+                <td>{{ fornecedor[1] }}</td>
+                <td>{{ fornecedor[2] }}</td>
+                <td>{{ fornecedor[3] }}</td>
+                <td>{{ fornecedor[4] }}</td>
+                <td>{{ fornecedor[5] }}</td>
+                <td>
+
+                    <a href="/editar/{{ fornecedor[0] }}" class="btn-editar">Editar</a>
+
+
+                    <a href="/excluir/{{ fornecedor[0] }}" class="btn-excluir">Excluir</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>
