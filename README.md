@@ -1,3 +1,3 @@
 # Programa-o-em-Python---Senai
 
--Duração de 60h
+-Duração de 60h, 2026
